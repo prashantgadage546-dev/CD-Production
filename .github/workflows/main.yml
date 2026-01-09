@@ -23,3 +23,10 @@ jobs:
       - name: SSH into VPS
         run: |
           ssh root@82.112.238.89 "echo 'SSH connection successful'"
+
+      - name: Debug SSH key
+        run: |
+           ls -l ~/.ssh
+           file ~/.ssh/id_ed25519
+           ssh-keygen -l -f ~/.ssh/id_ed25519 || echo "INVALID KEY"
+
